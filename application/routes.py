@@ -1,11 +1,11 @@
 from application import app, db, bcrypt
 from flask import render_template, redirect, url_for, request
 from application.forms import PostForm, RegistrationForm, LoginForm,UpdateAccountForm
-from application.models import Posts, Users
+from application.models import Posts, Users, Leagues
 from flask_login import login_user, current_user, logout_user, login_required
 
 
-@app.route('/')
+
 @app.route('/home')
 def home():
         postData = Posts.query.all()
@@ -13,7 +13,9 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title='about')
+    league_table = Leagues.query.all()
+    return render_template('about.html', title='about', league_table=league_table)
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
         if current_user.is_authenticated:
@@ -35,6 +37,7 @@ def register():
 
         return render_template('register.html', title='Register', form=form)
 
+@app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
         if current_user.is_authenticated:

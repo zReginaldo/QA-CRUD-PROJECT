@@ -1,5 +1,30 @@
 {% extends "layout.html" %}
 
-{% block navbar %}
-<h1> {{ title }} </h1>
-{% endblock navbar %}
+{% block body_content %}
+<h1> {{ Title }} </h1>
+
+    <p>Please Select The League:</p>
+    <form action="action_form.php" method="get">
+    <input type = "text" list = "airports" name="leagues">
+    <datalist id = "airports">
+    {% for i in league_table %}
+
+    <option value = '{{ i }}'> </option>
+   
+   
+    {% endfor %}
+    
+    
+    </datalist>
+
+     <input type = "submit" value = "confirm">
+
+    </form>
+
+
+<a href="{{ url_for('login') }}">Login</a>
+
+<h1>{{ league_table }} <h1>
+
+{% endblock body_content %}
+ 

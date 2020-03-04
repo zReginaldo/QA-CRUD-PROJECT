@@ -21,8 +21,8 @@ class Users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(30), nullable=False)
     last_name = db.Column(db.String(30), nullable=False)
-    email = db.Column(db.String(150), nullable=False, unique=True)
-    password = db.Column(db.String(500), nullable=False)
+    email = db.Column(db.String(30), nullable=False, unique=True)
+    password = db.Column(db.String(100), nullable=False)
     posts = db.relationship('Posts', backref='author', lazy=True)
 
     def __repr__(self):
@@ -31,3 +31,36 @@ class Users(db.Model, UserMixin):
             'Email: ', self.email, '\r\n',
             'Name: ', self.first_name, ' ', self.last_name
         ])
+
+class Leagues (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    league_name = db.Column(db.String(40), nullable=False)
+    
+    def __repr__(self):
+        return f"Leagues('{self.league_name}' )"
+
+class Club (db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    club_name = db.Column(db.String(40), nullable=False)
+    league_name = db.Column(db.String(40), nullable=False, unique=False)
+    
+    def __repr__(self):
+        return f"Club('{self.club_name}' )"
+
+class Players (db.Model):
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(40), unique=False, nullable=False)
+    club_name = db.Column(db.String(40), nullable=False, unique=False)
+    league_name = db.Column(db.String(40), nullable=False, unique=False)
+    position = db.Column(db.String(50), unique=False, nullable=False)
+    rating = db.Column(db.String(3), unique=False, nullable=False)
+    
+    def __repr__(self):
+        return f"Players('{self.name}' , '{self.club_name}' , '{self.position}' , '{self.rating}' )"
+
+
+
+
+@login_manager.user_loader
+def load_user(id):
+    return Users.query.get(int(id))
