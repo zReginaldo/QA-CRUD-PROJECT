@@ -1,8 +1,16 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField,BooleanField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, SelectField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from application.models import Users
 from flask_login import current_user
+
+
+
+class LeaguesForm(FlaskForm):
+    leagues = SelectField ('leagues', choices=[('England Premier League', 'English Premier League'), ('France Ligue 1', 'French League'), ('Germany 1. Bundesliga','Bundesliga'),('Italy Serie A','Serie A'),('Spain Primera Division', 'Spanish League')])
+    club = SelectField ('club', choices=[])
+    players = SelectField ('players', choices=[])
+
 
 
 class UpdateAccountForm(FlaskForm):

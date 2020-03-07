@@ -1,7 +1,7 @@
 from application import app, db, bcrypt
-from flask import render_template, redirect, url_for, request
-from application.forms import PostForm, RegistrationForm, LoginForm,UpdateAccountForm
-from application.models import Posts, Users, Leagues
+from flask import render_template, redirect, url_for, request, jsonify
+from application.forms import PostForm, RegistrationForm, LoginForm, UpdateAccountForm, LeaguesForm
+from application.models import *
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -11,10 +11,51 @@ def home():
         postData = Posts.query.all()
         return render_template('home.html', title='Home', posts=postData)
 
-@app.route('/about')
+@app.route('/')
+@app.route('/about', methods=['GET', 'POST']) 
+@login_required
 def about():
-    league_table = Leagues.query.all()
-    return render_template('about.html', title='about', league_table=league_table)
+    form = LeaguesForm()
+    form.club.choices = [(club.id,club.club_name) for club in Players.query.filter_by(league_name='').all()]
+    form.players.choices = [( players.id, players.name) for players in Players.query.filter_by(club_name='').all()]
+    
+    if request.method == "POST":
+        players = Players.query.filter_by(id=form.players.data).first() 
+        club = Club.query.filter_by(id=form.club.data).first()
+        return '<h1>Your Choice: {}</h1>'.format(players.name)
+    
+    return render_template('about.html', form=form)
+    
+
+@app.route('/clubs/<league_name>')
+def clubs(league_name):
+
+    teams = Players.query.filter_by(league_name=league_name).all()
+    
+    
+    clubArray = []
+
+    for club in teams: 
+        clubObj = {}
+        clubObj['id'] = club.id
+        clubObj['name'] = club.club_name
+        clubArray.append(clubObj)
+    
+    return jsonify({'teams' : clubArray})
+
+@app.route('/players/<id>')
+def players(id):
+    Player_nm = Players.query.filter_by(id=id).all()
+    PlayArray = []
+    
+    for players in Player_nm:
+        playObj = {}
+        playObj['id'] = players.id
+        playObj['name'] = players.name
+        PlayArray.append(playObj)
+        
+    return jsonify({'Player_nm' : PlayArray})
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

@@ -7,22 +7,24 @@
     <p>Welcome to this web app!</p>
 {% if posts %}
     <!-- for every post in the posts list -->
-    {% for post in posts %}
+    {% for choice in about %}
         <!-- display properties from the post -->
-        <h3>{{ post.title }}</h3>
-        <span>by <i>{{ post.author.first_name }} {{ post.author.last_name }}</i></span>
-        <span>on the <i>{{ post.date_posted }}</i></span>
-        <p>{{ post.content }}</p>
+
+
+        <h3>{{ about.players_select }}</h3>
+
+
     <!-- end the for-loop -->
     {% endfor %}
 <!-- otherwise... -->
 {% else %}
     <!-- display a message indicating that there are no posts -->
-    <p>There are no post</p>
+    <p>There are no players</p>
 <!-- end the 'if' statement -->
 {% endif %}
 
 <a href="{{ url_for('login') }}">Login</a>
+
 
 
 {% endblock body_content %}

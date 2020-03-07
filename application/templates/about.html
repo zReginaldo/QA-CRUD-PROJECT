@@ -1,30 +1,76 @@
 {% extends "layout.html" %}
 
 {% block body_content %}
+
 <h1> {{ Title }} </h1>
 
-    <p>Please Select The League:</p>
-    <form action="action_form.php" method="get">
-    <input type = "text" list = "airports" name="leagues">
-    <datalist id = "airports">
-    {% for i in league_table %}
 
-    <option value = '{{ i }}'> </option>
-   
-   
-    {% endfor %}
-    
-    
-    </datalist>
+<form method="POST">s
+	{{ form.leagues }}
+	<br><br>
+	{{ form.club }}
+	<br><br>
+	{{ form.players }}
 
-     <input type = "submit" value = "confirm">
+	<input type="submit">
 
-    </form>
+</form>
 
+<script>
+
+let leagues_select = document.getElementById('leagues');
+let club_select = document.getElementById('club');
+let players_select = document.getElementById('players');
+
+
+ leagues_select.onchange = function() {
+                league = leagues_select.value;
+
+         fetch ('/clubs/' + league).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let club of data.teams) {
+                         optionHTML += '<option value="'+ club.id + '">' + club.name + '</option>';
+                                }
+
+                                club_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+
+
+
+ club_select.onchange = function() {
+	club = club_select.value;
+		
+	 fetch ('/players/' + club).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let players of data.Player_nm) {
+                         optionHTML += '<option value="'+ players.id + '">' + players.name + '</option>';
+                                }
+
+                                players_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+
+
+</script>
 
 <a href="{{ url_for('login') }}">Login</a>
 
-<h1>{{ league_table }} <h1>
+<h1>{{ Clubs }} <h1>
 
 {% endblock body_content %}
  

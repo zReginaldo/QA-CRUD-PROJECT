@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+
+
+
+<h2>  English Premier League </h2>
+
+<p>Please Select The Club:</p>
+    <form action="home" method="get">
+    <input type = "text" list = "club" name="Fifa">
+    <datalist id = "club">
+
+    {% for i in club_table %}
+
+    <option value ="{{ i.club_name }}">
+   
+
+
+    {% endfor %}
+
+    </datalist>
+
+     <input type = "submit" value = "confirm">
+
+     <form>
+
+
+
+{% endblock body_content %}
+
