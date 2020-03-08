@@ -47,7 +47,7 @@ class Club (db.Model):
     def __repr__(self):
         return f"Club('{self.club_name}', '{self.league_name}' )"
 
-class Players (db.Model):
+class Players (db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key =True)
     name = db.Column(db.String(40), nullable = False, unique = True)
     club_name = db.Column(db.String(40), nullable = False)
@@ -58,6 +58,17 @@ class Players (db.Model):
     def __repr__(self):
         return f"Players('{self.name}' , '{self.club_name}' , '{self.position}' , '{self.rating}' )"
 
+class UserTeam (db.Model, UserMixin):
+    blah = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False) 
+    player_1 = db.Column(db.String(50), nullable=False)
+    player_2 = db.Column(db.String(40), nullable=False)
+    player_3 = db.Column(db.String(40), nullable=False)
+    player_4 = db.Column(db.String(40), nullable=False)
+    player_5 = db.Column(db.String(40), nullable=False)
+
+    def __repr__(self):
+        return f"UserTeam('{self.player_1}' , '{self.player_2}' , '{self.player_3}', '{self.player_4}' , '{self.player_5}')"
 
 @login_manager.user_loader
 def load_user(id):

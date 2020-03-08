@@ -2,28 +2,27 @@
 
 {% block body_content %}
 
-
-    <h1>Home Page</h1>
-    <p>Welcome to this web app!</p>
-{% if posts %}
-    <!-- for every post in the posts list -->
-    {% for choice in about %}
-        <!-- display properties from the post -->
+<h1> Your Team Selection</h2>
+<div>
 
 
-        <h3>{{ about.players_select }}</h3>
+
+        {% for i in teamDisp %}
+
+                <h2> First Selection:{{i.player_1}}</h2>
+                <h2> Second Selection:{{i.player_2}}</h2>
+                <h2> Third Selection:{{i.player_3}}</h2>
+                <h2> Fourth Selection:{{i.player_4}}</h2>
+                <h2> Fith Selection:{{i.player_5}}</h2>
+
+        {% endfor %}
+</div>
+
+<p> Would you like to start again? </p>
 
 
-    <!-- end the for-loop -->
-    {% endfor %}
-<!-- otherwise... -->
-{% else %}
-    <!-- display a message indicating that there are no posts -->
-    <p>There are no players</p>
-<!-- end the 'if' statement -->
-{% endif %}
 
-<a href="{{ url_for('login') }}">Login</a>
+<a href="{{ url_for('about') }}">Reset</a>
 
 
 

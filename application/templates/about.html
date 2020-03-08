@@ -2,17 +2,37 @@
 
 {% block body_content %}
 
-<h1> {{ Title }} </h1>
+<h1> Team Selection Page  </h1>
 
+<form method = "POST", action=''>
+<p> Select your players below, once you have chosen a League you will then be allowed to choose the club associated to it!! </p>
 
-<form method="POST">s
 	{{ form.leagues }}
-	<br><br>
 	{{ form.club }}
-	<br><br>
 	{{ form.players }}
+	<br><br>
 
-	<input type="submit">
+	{{ form.leagues1 }}
+	{{ form.club1 }}
+	{{ form.players1 }}
+	<br><br>
+
+        {{ form.leagues2 }}
+        {{ form.club2 }}
+        {{ form.players2 }}
+	<br><br>
+
+        {{ form.leagues3 }}
+        {{ form.club3 }}
+        {{ form.players3 }}
+	<br><br>
+
+        {{ form.leagues4 }}
+        {{ form.club4 }}
+        {{ form.players4 }}
+
+	<br> <br> 
+	<input type="submit" value=" Confirm Your Team Selection">
 
 </form>
 
@@ -23,7 +43,7 @@ let club_select = document.getElementById('club');
 let players_select = document.getElementById('players');
 
 
- leagues_select.onchange = function() {
+leagues_select.onchange = function() {
                 league = leagues_select.value;
 
          fetch ('/clubs/' + league).then(function(response) {
@@ -64,13 +84,212 @@ let players_select = document.getElementById('players');
 
      }
 
+</script>
+
+<script>
+
+let leagues1_select = document.getElementById('leagues1');
+let club1_select = document.getElementById('club1');
+let players1_select = document.getElementById('players1');
+
+
+ leagues1_select.onchange = function() {
+                league1 = leagues1_select.value;
+
+         fetch ('/clubs1/' + league1).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let club1 of data.teams1) {
+                         optionHTML += '<option value="'+ club1.id + '">' + club1.name + '</option>';
+                                }
+
+                                club1_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+
+club1_select.onchange = function() {
+        club1 = club1_select.value;
+
+         fetch ('/players1/' + club1).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let players1 of data.Player_nm1) {
+                         optionHTML += '<option value="'+ players1.id + '">' + players1.name + '</option>';
+
+                                }
+
+                                players1_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+</script>            
+
+
+<script>
+
+let leagues2_select = document.getElementById('leagues2');
+let club2_select = document.getElementById('club2');
+let players2_select = document.getElementById('players2');
+
+
+ leagues2_select.onchange = function() {
+                league2 = leagues2_select.value;
+
+         fetch ('/clubs2/' + league2).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let club2 of data.teams2) {
+                         optionHTML += '<option value="'+ club2.id + '">' + club2.name + '</option>';
+                                }
+
+                                club2_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+
+
+
+ club2_select.onchange = function() {
+        club2 = club2_select.value;
+
+         fetch ('/players2/' + club2).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let players2 of data.Player_nm2) {
+                         optionHTML += '<option value="'+ players2.id + '">' + players2.name + '</option>';
+
+                                }
+
+                                players2_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+</script>
+
+<script>
+
+let leagues3_select = document.getElementById('leagues3');
+let club3_select = document.getElementById('club3');
+let players3_select = document.getElementById('players3');
+
+
+ leagues3_select.onchange = function() {
+                league3 = leagues3_select.value;
+
+         fetch ('/clubs3/' + league3).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let club3 of data.teams3) {
+                         optionHTML += '<option value="'+ club3.id + '">' + club3.name + '</option>';
+                                }
+
+                                club3_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+
+
+
+ club3_select.onchange = function() {
+        club3 = club3_select.value;
+
+         fetch ('/players3/' + club3).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let players3 of data.Player_nm3) {
+                         optionHTML += '<option value="'+ players3.id + '">' + players3.name + '</option>';
+                                }
+
+                                players3_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+</script>
+
+	
+<script>
+
+
+let leagues4_select = document.getElementById('leagues4');
+let club4_select = document.getElementById('club4');
+let players4_select = document.getElementById('players4');
+
+
+ leagues4_select.onchange = function() {
+                league4 = leagues4_select.value;
+
+         fetch ('/clubs4/' + league4).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML = '';
+
+                         for(let club4 of data.teams4) {
+                         optionHTML += '<option value="'+ club4.id + '">' + club4.name + '</option>';
+                                }
+
+                                club4_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
+
+
+
+
+ club4_select.onchange = function() {
+        club4 = club4_select.value;
+
+         fetch ('/players4/' + club4).then(function(response) {
+
+                 response.json().then(function(data) {
+                        let optionHTML ='';
+
+                         for(let players4 of data.Player_nm4) {
+                         optionHTML += '<option value="'+ players4.id + '">' + players4.name + '</option>';
+                                }
+
+                                players4_select.innerHTML = optionHTML;
+
+                        });
+                });
+
+     }
 
 
 </script>
 
-<a href="{{ url_for('login') }}">Login</a>
 
-<h1>{{ Clubs }} <h1>
 
 {% endblock body_content %}
- 
