@@ -37,10 +37,18 @@ My project is going to be a CRUD application that allows you the user to pick a 
 ## Website Structure
 ![Website Structure](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/Html%20Frame.png "Website Structure")
 
+## Technologies used 
 
+https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%20(Database).png
+●	[Gantt Chart](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%20(Database).png)
+●	Database: Azure SQL Server 
+●	Programming language: Python
+●	Unit Testing with Python (Pytest)
+●	Front-end: Flask (HTML)
+●	Version Control: Git
+●	CI Server: Jenkins
+●	Cloud server: Azure VM
 
-
- 
 
 
 
