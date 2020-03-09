@@ -15,7 +15,7 @@ My project is going to be a CRUD application that allows you the user to pick a 
 -	The list will include players from all the top 5/6 leagues 
 -	Each league will have 20/30 players, ranging from current 2020 to early 2000s 
 
--	User can use multiple leagues or just one to pick their ultimate team from. 
+-	User will be given a list of leagues to choose from 
 
 -	The setup will be League > Team > Player, in each league there will be the BIG Six which is the top 6 teams in each team there will be 10/15 players
 
@@ -38,18 +38,21 @@ My project is going to be a CRUD application that allows you the user to pick a 
 ![Website Structure](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/Html%20Frame.png "Website Structure")
 
 ## Technologies used 
+* [Gantt Chart](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%20(Database).png)
+* Database: Azure SQL Server 
+* Programming language: Python
+* Unit Testing with Python (Pytest)
+* Front-end: Flask (HTML)
+* Version Control: Git
+* CI Server: Jenkins
+* Cloud server: Azure VM
 
-https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%20(Database).png
-●	[Gantt Chart](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%20(Database).png)
-●	Database: Azure SQL Server 
-●	Programming language: Python
-●	Unit Testing with Python (Pytest)
-●	Front-end: Flask (HTML)
-●	Version Control: Git
-●	CI Server: Jenkins
-●	Cloud server: Azure VM
+## Entity Relationship Diagram 
+![ERD](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%20(Database).png "ERD")
+My initial ERD describes the relationships between all of my tables within my database, as you can see the user can has the capability of choosing from many leagues, as this is the permis of my project and will dictate what the user is allowed to choose in the next step which is the league that the club belongs to. 
 
-
+![Added Table](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%202.png "Added Table")
+My final ERD had some slight changes, in order to display the users chosen 5 aside team I had to create another table that onoce the five player values had been confirmed would go into, then print this on a separate HTML page. 
 
 
 
