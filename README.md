@@ -35,7 +35,7 @@ My project is going to be a CRUD application that allows you the user to pick a 
 -	Once finished the user should be able to lock in their choices/ save their team and make a new one. 
 
 ## Technologies used 
-* [Gantt Chart](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%20(Database).png)
+* [Gantt Chart](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/Gnatt%20Project%20Planning%20Chart.png)
 * Database: Azure SQL Server 
 * Programming language: Python
 * Unit Testing with Python (Pytest)
