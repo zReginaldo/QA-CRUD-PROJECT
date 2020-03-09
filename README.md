@@ -35,7 +35,7 @@ My project is going to be a CRUD application that allows you the user to pick a 
 -	Once finished the user should be able to lock in their choices/ save their team and make a new one. 
 
 ## Website Structure
-(https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/Html%20Frame.png)
+![CI Pipeline](https://github.com/hman191/QAproject1/blob/master/Documentation/Screen%20Shot%202020-03-08%20at%2012.07.12.png "CI Pipeline")
 
 
 
