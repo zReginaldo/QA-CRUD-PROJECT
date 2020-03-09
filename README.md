@@ -52,7 +52,13 @@ My project is going to be a CRUD application that allows you the user to pick a 
 My initial ERD describes the relationships between all of my tables within my database, as you can see the user can has the capability of choosing from many leagues, as this is the permis of my project and will dictate what the user is allowed to choose in the next step which is the league that the club belongs to. 
 
 ![Added Table](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/ERD%20Diagram%202.png "Added Table")
+
 My final ERD had some slight changes, in order to display the users chosen 5 aside team I had to create another table that onoce the five player values had been confirmed would go into, then print this on a separate HTML page. 
 
+## User Stories 
+![User Stories](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/User%20Stories.PNG "User Stories")
+
+
+## Risk Assesment 
 
 
