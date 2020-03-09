@@ -34,7 +34,10 @@ My project is going to be a CRUD application that allows you the user to pick a 
 
 -	Once finished the user should be able to lock in their choices/ save their team and make a new one. 
 
--	Community aspect, save/share team on site so that you can make comparisons with other users…. Up votes/ down votes….. players they want added
+## Website Structure
+(https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/Html%20Frame.png)
+
+
 
 
  
