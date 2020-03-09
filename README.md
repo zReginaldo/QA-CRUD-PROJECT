@@ -17,7 +17,7 @@ My project is going to be a CRUD application that allows you the user to pick a 
 
 -	User can use multiple leagues or just one to pick their ultimate team from. 
 
--	The setup will be League  Team  Player, in each league there will be the BIG Six which is the top 6 teams in each team there will be 10/15 players
+-	The setup will be League > Team > Player, in each league there will be the BIG Six which is the top 6 teams in each team there will be 10/15 players
 
 -	 (Potentially) There will be another list of players who aren’t associated to the top leagues who can still be picked. 
 
@@ -35,7 +35,7 @@ My project is going to be a CRUD application that allows you the user to pick a 
 -	Once finished the user should be able to lock in their choices/ save their team and make a new one. 
 
 ## Website Structure
-![CI Pipeline](https://github.com/hman191/QAproject1/blob/master/Documentation/Screen%20Shot%202020-03-08%20at%2012.07.12.png "CI Pipeline")
+![Website Structure](https://github.com/zReginaldo/QA-CRUD-PROJECT/blob/master/Documentation/Html%20Frame.png"Website Structure")
 
 
 
